@@ -2,7 +2,7 @@
 const strangeArray = [
   "Zero",
   function () {
-    alert("Hola soy una función en un array");
+      alert("Hola soy una función en un array");
   },
   22,
   null,
@@ -16,7 +16,7 @@ const strangeArray = [
   { name: "Info", lastname: "last info" },
   () => true,
   function showNumbers() {
-    return "1, 2, 3, 4";
+      return "1, 2, 3, 4";
   },
   "Another String",
   ["Hola mundo!"],
@@ -28,15 +28,20 @@ const strangeArray = [
 function showList(array) {
   const container = document.getElementById("list");
   container.innerHTML = "";
-  // Más info de forEach => https://developer.mozilla.org/es/docs/Web/JavaScript/Reference/Global_Objects/Array/forEach
   array.forEach((element) => {
-    const li = document.createElement("li");
-    li.appendChild(document.createTextNode(element));
-    container.appendChild(li);
+      const li = document.createElement("li");
+      li.appendChild(document.createTextNode(element));
+      container.appendChild(li);
   });
 }
 
 document.addEventListener("DOMContentLoaded", (e) => {
-  // Escribe tu solución aquí
-  // Sugerencia de cómo mostrar el array => showList(strangeArray);
+  // Filtrar elementos de tipo String del array strangeArray
+  const filteredStrings = strangeArray.filter((element) => typeof element === "string");
+
+  // Ordenar alfabéticamente los elementos
+  filteredStrings.sort();
+
+  // Mostrar los elementos en el elemento <ul> con id "list"
+  showList(filteredStrings);
 });
